@@ -78,6 +78,7 @@
   height: 40px;
   border-radius: 5px;
   border: grey;
+  background-color: white;
 }
 
 .form label {
