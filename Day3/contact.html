@@ -25,25 +25,36 @@
       <form class="form">
         <h2>GET IN TOUCH</h2>
         <label for="name">Name</label>
-        <input class="input-text" type="text" />
+        <input class="input-text" type="text" id="inputName" />
         <label for="email">Email</label>
-        <input class="input-text" type="text" />
+        <input class="input-text" type="text" id="inputEmail" />
         <label for="phone">Number Phone</label>
-        <input class="input-text" type="text" />
+        <input class="input-text" type="text" id="inputPhone" />
         <label for="">Subject</label>
-        <select class="select-work">
-          <option value=""></option>
-          <option value="">Fullstack Developer</option>
-          <option value="">Frontend Developer</option>
-          <option value="">Backend Developer</option>
+        <select class="select" id="inputSubject">
+          <option></option>
+          <option>Fullstack Developer</option>
+          <option>Frontend Developer</option>
+          <option>Backend Developer</option>
         </select>
         <label for="message">Your Message</label>
-        <textarea class="textarea-message" style="height: 70px"></textarea>
+        <textarea
+          class="textarea-message"
+          style="height: 70px"
+          id="inputMessage"
+        ></textarea>
         <div>
-          <input class="btn-submit" type="button" value="Submit" />
+          <input
+            class="btn-submit"
+            type="button"
+            value="Submit"
+            onclick="submitData()"
+          />
         </div>
       </form>
     </div>
     <!-- End Form -->
+
+    <script src="contact.js"></script>
   </body>
 </html>

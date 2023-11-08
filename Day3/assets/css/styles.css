@@ -75,6 +75,10 @@ div a {
   gap: 10px;
 }
 
+label {
+  margin-bottom: -5px;
+}
+
 .form h2 {
   text-align: center;
   font-weight: 1500;
@@ -82,7 +86,8 @@ div a {
 }
 
 .input-text {
-  height: 40px;
+  /* height: 40px; */
+  padding: 12px 10px;
   border-radius: 5px;
   border: grey;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -94,12 +99,14 @@ div a {
   border: grey;
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding-left: 6px;
 }
 
 .textarea-message {
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border: grey;
+  padding-left: 5px;
 }
 
 .form label {
