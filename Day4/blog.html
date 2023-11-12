@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/css/blog.css" />
+  </head>
+  <body class="body-contact">
+    <!-- Start Navbar -->
+    <div class="container">
+      <nav style="display: flex">
+        <img class="logo" src="assets/image/dumbways.png" alt="" />
+        <ul class="nav__links">
+          <li><a class="" href="index.html">Home</a></li>
+          <li><a class="" href="project.html"> Project</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="contact.html"
+          ><button class="btn-contactme">Contact Me</button></a
+        >
+      </div>
+    </div>
+    <!-- End Navbar -->
+
+    <!--  start Form -->
+    <div class="content">
+      <form onsubmit="submitBlog(event)" class="form">
+        <h2>GET IN TOUCH</h2>
+        <label class="label-form">Project Name</label>
+        <input class="input-text" type="text" id="inputTitle" />
+        <div class="input-row">
+          <div class="input-group">
+            <label class="label-form">Start Date</label>
+            <input class="input-text" type="date" id="startDate" />
+          </div>
+          <div class="input-group">
+            <label class="label-form">End Date</label>
+            <input class="input-text" type="date" id="endDate" />
+          </div>
+        </div>
+        <label class="label-form">Your Message</label>
+        <textarea
+          class="textarea-message"
+          style="height: 70px"
+          id="inputMessage"
+        ></textarea>
+        <label class="label-form" for="">Technologies</label>
+        <div class="input-tech">
+          <div class="input-checkbox">
+            <label class="label-tech">
+              <input type="checkbox" name="tech[]" value="NodeJS" />
+              Node JS
+            </label>
+            <label class="label-tech">
+              <input type="checkbox" name="tech[]" value="ReactJS" />
+              React JS
+            </label>
+          </div>
+          <div class="input-checkbox">
+            <label class="label-tech">
+              <input type="checkbox" name="tech[]" value="NextJS" />
+              Next JS
+            </label>
+            <label class="label-tech">
+              <input type="checkbox" name="tech[]" value="Typescript" />
+              Typescript
+            </label>
+          </div>
+        </div>
+
+        <label class="label-form">Upload Image</label>
+        <div class="input-blog-image-group">
+          <label for="inputImage">
+            <p>Attach File</p>
+            <i class="fa-solid fa-link"></i>
+          </label>
+          <input type="file" id="inputImage" hidden />
+        </div>
+        <div>
+          <button class="btn-submit">Post Blog</button>
+        </div>
+      </form>
+    </div>
+    <!-- End Form -->
+    <!-- start Content -->
+
+    <div class="container-blog">
+      <h1>My Project</h1>
+      <div class="cards" id="contents"></div>
+    </div>
+
+    <script src="assets/js/blog.js"></script>
+  </body>
+</html>
