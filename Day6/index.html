@@ -16,15 +16,22 @@
       <nav style="display: flex">
         <img class="logo" src="assets/image/dumbways.png" alt="" />
         <ul class="nav__links">
-          <li><a class="" href="index.html">Home</a></li>
-          <li><a class="project" href="project.html"> Project</a></li>
+          <li class="nav-list"><a href="index.html">Home</a></li>
+          <li class="nav-list"><a href="blog.html">Project</a></li>
         </ul>
       </nav>
       <div>
         <a href="contact.html"
-          ><button class="btn-contactme">Contact Me</button></a
-        >
+          ><button class="btn-contactme nav-list">Contact Me</button></a
+        ><button class="btn-hamburger" onclick="hamburgerDropdown()">
+          <i class="fa-solid fa-bars fa-2xl" id="hamburger-button"></i>
+        </button>
       </div>
+    </div>
+    <div class="dropdown-hamburger" id="my-div">
+      <a href="index.html" class="active">Home</a>
+      <a href="blog.html">Project</a>
+      <a href="contact.html">Contact</a>
     </div>
     <!-- End Navbar -->
 
@@ -80,5 +87,6 @@
       </div>
     </div>
     <!-- End Content -->
+    <script src="assets/js/nav.js"></script>
   </body>
 </html>
