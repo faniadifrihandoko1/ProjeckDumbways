@@ -1,0 +1,25 @@
+{
+  "name": "personal-web",
+  "version": "1.0.0",
+  "description": "This is website personal in dumbways",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon Day10/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faniadifrihandoko1/ProjeckDumbways.git"
+  },
+  "author": "fani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faniadifrihandoko1/ProjeckDumbways/issues"
+  },
+  "homepage": "https://github.com/faniadifrihandoko1/ProjeckDumbways#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
