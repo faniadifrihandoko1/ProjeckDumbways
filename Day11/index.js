@@ -44,11 +44,6 @@ function addProject(req, res) {
 }
 
 function detailProject(req, res) {
-  const title = req.params.id;
-  const data = {
-    id: "1",
-    name: `Project`,
-  };
   res.render("detail-project");
 }
 function contactMe(req, res) {
