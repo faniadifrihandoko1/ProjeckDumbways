@@ -1,0 +1,185 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import
+      url("https://fonts.googleapis.com/css2?family=Poppins&display=swap"); * {
+      font-family: "Poppins", sans-serif; } .img-size { width: 100%; height:
+      15vw; } .text-justify { text-align: justify; } .navbar-nav > .active > a {
+      color: red; }
+    </style>
+  </head>
+  <body style="background-color: #dce0e4">
+    <nav class="navbar navbar-expand-lg px-5" style="background-color: #f4f3f3">
+      <div class="container-fluid">
+        <a class="navbar-brand px-2" href="/home"><img
+            src="/assets/image/dumbways.png"
+            alt=""
+            height="36"
+          /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse px-2" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/add-project">Add Project</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/testimonials">Testimonial</a>
+            </li>
+          </ul>
+          <a
+            href="/contact-me"
+            class="btn btn-dark btn-sm"
+            type="submit"
+          >Contact Me</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+    <div class="container shadow bg-light p-5 my-5 col-10">
+      <div class="row">
+        <div class="w-50 pt-4 col">
+          <h3>Hi Welcome to my Hut</h3>
+          <p class="text-justify">
+            Saya adalah lulusan STT Terpadu Nurul Fikri, baru saja menyelesaikan
+            studi bulan ini, dan memiliki minat yang kuat untuk menjadi seorang
+            pengembang fullstack yang terampil. Meskipun saya masih perlu
+            memperluas pengetahuan saya, saya sangat antusias untuk mengikuti
+            bootcamp fullstack developer. Saya berharap dapat mendalami
+            pemahaman saya tentang teknologi web, termasuk pengembangan frontend
+            dan backend. Selain itu, saya ingin mempelajari cara membangun
+            antarmuka pengguna yang menarik dan responsif serta menguasai
+            keterampilan pemrograman yang diperlukan untuk mengelola sisi server
+            dari suatu aplikasi. Saya yakin bootcamp ini akan memberikan
+            pelatihan intensif dan pengalaman praktis yang diperlukan untuk
+            mencapai tujuan saya, yaitu menjadi seorang pengembang fullstack
+            yang kompeten dan berpengalaman.
+          </p>
+          <div class="d-flex pt-3 gap-2">
+            <div><button class="btn btn-dark btn-sm">Contact</button></div>
+            <div>
+              <p>Download CV <i class="fa-solid fa-download"></i></p>
+            </div>
+          </div>
+          <div class="d-flex icon-fa pt-4 gap-3">
+            <a
+              href="https://id.linkedin.com/in/fani-adi-frihandoko-07a6ba153"
+            ><i
+                style="color: black"
+                class="fa-brands fa-linkedin fa-2xl"
+              ></i></a>
+            <a
+              href="https://instagram.com/faniadifrhandoko?igshid=OGQ5ZDc2ODk2ZA=="
+            ><i
+                style="color: black"
+                class="fa-brands fa-square-instagram fa-2xl"
+              ></i></a>
+            <a
+              href="https://www.facebook.com/faniadiifrihandoko?mibextid=ZbWKwL"
+            ><i
+                style="color: black"
+                class="fa-brands fa-square-facebook fa-2xl"
+              ></i></a>
+            <a href="https://github.com/faniadifrihandoko"><i
+                style="color: black"
+                class="fa-brands fa-square-github fa-2xl"
+              ></i></a>
+          </div>
+        </div>
+        <div class="w-50 p-4 col">
+          <div class="d-flex">
+            <div>
+              <img src="/assets/image/fani.jpg" alt="" class="w-100 h-100" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Project -->
+    <hr />
+    <div class="container py-5">
+      <div class="text-end pb-3">
+        <a href="/add-project" class="btn btn-dark">Add My Project</a>
+      </div>
+      <div class="row g-3" id="contents">
+        {{#each data}}
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100">
+              <div class="card-img p-2 mb-1 h-100">
+                <img
+                  src="/assets/image/{{this.image}}"
+                  alt=""
+                  class="card-img-top h-100"
+                />
+              </div>
+              <div class="d-flex flex-column mt-auto card-body pt-0">
+                <h5 class="mb-1 fw-bolder"><a
+                    href="/detail-project/{{this.id}}"
+                  >{{this.name}}</a></h5>
+                <p class="h6 mb-0 pt-0">Durasi :{{this.duration}}</p>
+                <p class="mt-1 pt-0 text-justify">
+                  {{this.description}}
+                </p>
+                <div class="logo">
+                  {{#each tech}}
+                    <i class="fa-brands fa-{{this}} fa-xl"></i>
+                  {{/each}}
+                </div>
+                <div class="d-flex mt-auto pt-3 gap-1">
+                  <form class="btn rounded btn-dark w-50">
+                    <a
+                      href="/update-project/{{this.id}}"
+                      class="btn rounded btn-dark"
+                    >Edit</a>
+                  </form>
+                  <form
+                    class="btn rounded btn-dark w-50"
+                    method="post"
+                    action="/project/{{this.id}}"
+                  >
+                    <button class="btn rounded btn-dark">Delete</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/assets/js/blog.js"></script>
+  </body>
+</html>

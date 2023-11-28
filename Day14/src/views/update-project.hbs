@@ -52,7 +52,7 @@
               >Home</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/project">Add Project</a>
+              <a class="nav-link" href="/add-project">Add Project</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/testimonials">Testimonial</a>
@@ -69,17 +69,19 @@
     <!-- Navbar End -->
 
     <div class="container my-5">
-      <h1 class="text-center">Get In Touch</h1>
+      <h1 class="text-center">Update Project</h1>
       <div class="d-flex justify-content-center my-4">
         <div class="col-6">
-          <form method="post" action="/project">
+          <form method="post" action="/update-project">
+            <input type="hidden" name="id" value="{{data.id}}" />
             <div class="mb-3">
               <label class="form-label">Name</label>
               <input
                 type="text"
                 class="form-control"
                 id="inputTitle"
-                name="inputTitle"
+                name="name"
+                value="{{data.name}}"
               />
             </div>
             <div class="row my-3">
@@ -91,6 +93,7 @@
                     class="form-control"
                     id="startDate"
                     name="startDate"
+                    value="{{data.start_date}}"
                   />
                 </div>
               </div>
@@ -102,6 +105,7 @@
                     class="form-control"
                     id="endDate"
                     name="endDate"
+                    value="{{data.end_date}}"
                   />
                 </div>
               </div>
@@ -112,8 +116,8 @@
                 class="form-control"
                 rows="3"
                 id="inputMessage"
-                name="inputMessage"
-              ></textarea>
+                name="description"
+              >{{data.description}}</textarea>
             </div>
             <div class="mb-3">
               <label class="form-label">Technologies</label>
@@ -124,11 +128,14 @@
                       class="form-check-input"
                       type="checkbox"
                       id="flexCheckDefault"
-                      name="tech"
-                      value="html5"
-                    />
+                      name="html5"
+                      value="true"
+                      {{#each data.tech}}
+                    {{#ifCond this '==' "html5"}}checked {{/ifCond}}
+                      {{/each}}
+
                     <label class="form-check-label" for="flexCheckDefault">
-                      html
+                      HTML
                     </label>
                   </div>
                   <div>
@@ -136,8 +143,11 @@
                       class="form-check-input"
                       type="checkbox"
                       id="flexCheckDefault"
-                      name="tech"
-                      value="css3-alt"
+                      name="css3"
+                      value="true"
+                      {{#each data.tech}}
+                    {{#ifCond this '==' "css3"}}checked {{/ifCond}}
+                      {{/each}}
                     />
                     <label class="form-check-label" for="flexCheckDefault">
                       CSS
@@ -150,8 +160,11 @@
                       class="form-check-input"
                       type="checkbox"
                       id="flexCheckDefault"
-                      name="tech"
-                      value="js"
+                      name="js"
+                      value="true"                
+                      {{#each data.tech}}
+                    {{#ifCond this '==' "js"}}checked {{/ifCond}}
+                      {{/each}}
                     />
                     <label class="form-check-label" for="flexCheckDefault">
                       Javascript
@@ -161,12 +174,15 @@
                     <input
                       class="form-check-input"
                       type="checkbox"
-                      id="flexCheckDefault"
-                      name="tech"
-                      value="react"
+                      id="typescript"
+                      name="react"
+                      value="true"
+                      {{#each data.tech}}
+                    {{#ifCond this '==' "react"}}checked {{/ifCond}}
+                      {{/each}}
                     />
                     <label class="form-check-label" for="flexCheckDefault">
-                      React JS
+                      react
                     </label>
                   </div>
                 </div>
@@ -178,11 +194,12 @@
                 type="file"
                 class="form-control"
                 id="inputImage"
-                name="inputImage"
+                name="image"
+                value="{{data.image}}"
               />
             </div>
             <div class="text-end">
-              <button type="submit" class="btn btn-dark">Submit</button>
+              <button type="submit" class="btn btn-dark">Update Project</button>
             </div>
           </form>
         </div>
@@ -225,10 +242,16 @@
         </div> -->
       </div>
     </div>
+    <script>
+
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script>
+
+    </script>
   </body>
 </html>
