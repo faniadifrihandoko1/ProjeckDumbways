@@ -1,0 +1,270 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import
+      url("https://fonts.googleapis.com/css2?family=Poppins&display=swap"); * {
+      font-family: "Poppins", sans-serif; } .img-size { width: 100%; height:
+      15vw; } .navbar-nav > .active > a { color: red; }
+    </style>
+  </head>
+  <body style="background-color: #dce0e4">
+      {{! Navbar }}
+    <nav class="navbar navbar-expand-lg px-5" style="background-color: #f4f3f3">
+      <div class="container-fluid">
+        <a class="navbar-brand px-2" href="/home"><img
+            src="/assets/image/dumbways.png"
+            alt=""
+            height="36"
+          /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse px-2" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/home">Home</a>
+            </li>
+            {{#if isLogin}}
+            <li class="nav-item">
+              <a class="nav-link" href="/add-project">Add Project</a>
+            </li>
+            {{/if}}
+            <li class="nav-item">
+              <a class="nav-link" href="/testimonials">Testimonial</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            {{#if isLogin}}
+              <li class="me-3">
+                <a class="nav-link">Hai, {{user.name}}</a>
+              </li>
+            {{else}}
+              <li class="">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+              <li class="me-3">
+                <a class="nav-link" href="/register">Register</a>
+              </li>
+            {{/if}}
+            <li><a
+                href="/contact-me"
+                class="btn btn-dark btn-sm mt-1"
+                type="submit"
+              >Contact Me</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {{! Navbar }}
+
+    <div class="container my-5">
+      <h1 class="text-center">Update Project</h1>
+      <div class="d-flex justify-content-center my-4">
+        <div class="col-6">
+          <form method="post" action="/update-project" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{data.id}}" />
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputTitle"
+                name="name"
+                value="{{data.name}}"
+              />
+            </div>
+            <div class="row my-3">
+              <div class="col-md-6">
+                <div class="form-outline">
+                  <label class="form-label">Star Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="startDate"
+                    name="startDate"
+                    value="{{data.start_date}}"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-outline">
+                  <label class="form-label">End Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="endDate"
+                    name="endDate"
+                    value="{{data.end_date}}"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                rows="3"
+                id="inputMessage"
+                name="description"
+              >{{data.description}}</textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Technologies</label>
+              <div class="d-flex flex-row">
+                <div class="cold-md-6 me-2">
+                  <div>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="flexCheckDefault"
+                      name="html5"
+                      value="true"
+                      {{#each data.tech}}
+                    {{#ifCond this '==' "html5"}}checked {{/ifCond}}
+                      {{/each}}
+
+                    <label class="form-check-label" for="flexCheckDefault">
+                      HTML
+                    </label>
+                  </div>
+                  <div>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="flexCheckDefault"
+                      name="css3"
+                      value="true"
+                      {{#each data.tech}}
+                    {{#ifCond this '==' "css3"}}checked {{/ifCond}}
+                      {{/each}}
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      CSS
+                    </label>
+                  </div>
+                </div>
+                <div class="cold-md-6">
+                  <div>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="flexCheckDefault"
+                      name="js"
+                      value="true"                
+                      {{#each data.tech}}
+                    {{#ifCond this '==' "js"}}checked {{/ifCond}}
+                      {{/each}}
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Javascript
+                    </label>
+                  </div>
+                  <div>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="typescript"
+                      name="react"
+                      value="true"
+                      {{#each data.tech}}
+                    {{#ifCond this '==' "react"}}checked {{/ifCond}}
+                      {{/each}}
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      react
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Image</label>
+              <input
+                type="file"
+                class="form-control"
+                id="inputImage"
+                name="image"
+                value="{{data.image}}"
+              />
+            </div>
+            <div class="text-end">
+              <button type="submit" class="btn btn-dark">Update Project</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row g-3" id="contents">
+        <!-- <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100">
+            <div class="card-img p-2">
+              <img src="assets/image/blog.jpg" alt="" class="card-img-top" />
+            </div>
+            <div class="d-flex flex-column mt-auto card-body">
+              <h5>testing</h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+                quis ex, nihil dolore veritatis dolor illo ipsum aliquid ea
+                amet.
+              </p>
+              <ul class="d-flex flex-row list-inline">
+                <li class="list-inline-item">
+                  <i class="fa-brands fa-react fa-sm"></i>
+                </li>
+                <li class="list-inline-item">
+                  <i class="fa-brands fa-react fa-sm"></i>
+                </li>
+                <li class="list-inline-item">
+                  <i class="fa-brands fa-react fa-sm"></i>
+                </li>
+                <li class="list-inline-item">
+                  <i class="fa-brands fa-react fa-sm"></i>
+                </li>
+              </ul>
+              <div class="d-flex mt-auto gap-1">
+                <button class="btn rounded btn-dark w-50">Edit</button>
+                <button class="btn rounded btn-dark w-50">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <script>
+
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+
+    </script>
+  </body>
+</html>
